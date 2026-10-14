@@ -22,11 +22,12 @@ choose to remember; document files and passwords are not saved to local storage.
 `PDF-Workshop-online.html` loads basic PDF/font/ZIP libraries from CDNs and needs
 internet access. Use `index.html` for offline work and GitHub Pages.
 
-## New in v0.1.3
+## Tools and Features
 
-- **Save PDF preserving layout:** after OCR, save the whole document as
-  `document-OCR.pdf`. Original page appearance and images are preserved, and
-  recognized text is added as an invisible, searchable/selectable layer.
+PDF Workshop is a browser-based PDF editor built with open-source components. 
+The offline edition processes documents locally on your device without uploading your files to a server.
+
+- Open and merge files: Open PDFs and images, convert images into PDF pages, and combine multiple files into one document.
 - **Save as PDF when OCR finishes:** optional automatic download after successful
   recognition. Cancelled runs and runs without recognized text do not trigger it.
 - **Print:** use the browser print dialog to choose printer, paper, range and
