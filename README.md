@@ -34,7 +34,6 @@ internet access. Use `index.html` for offline work and GitHub Pages.
 - **Save as:** choose a new PDF filename. Supported browsers offer a system save
   picker; others download the renamed file. Shortcut: `Ctrl+Shift+S`. Cancelling
   preserves the document name and unsaved-changes state.
-- **Close without saving:** red background and white text in both themes.
 
 ## Edit existing text and formatting
 
