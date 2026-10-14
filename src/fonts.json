@@ -1,0 +1,103 @@
+[
+  {
+    "id": "inter",
+    "name": "Inter",
+    "css": "WorkshopInter",
+    "variants": {
+      "regular": "inter-Regular.ttf",
+      "bold": "Inter-Bold.ttf",
+      "italic": "Inter-italic.ttf",
+      "boldItalic": "Inter-boldItalic.ttf"
+    }
+  },
+  {
+    "id": "arimo",
+    "name": "Arimo (Arial)",
+    "css": "WorkshopArimo",
+    "variants": {
+      "regular": "arimo-regular.ttf",
+      "bold": "arimo-bold.ttf",
+      "italic": "arimo-italic.ttf",
+      "boldItalic": "arimo-boldItalic.ttf"
+    }
+  },
+  {
+    "id": "tinos",
+    "name": "Tinos (Times)",
+    "css": "WorkshopTinos",
+    "variants": {
+      "regular": "tinos-regular.ttf",
+      "bold": "tinos-bold.ttf",
+      "italic": "tinos-italic.ttf",
+      "boldItalic": "tinos-boldItalic.ttf"
+    }
+  },
+  {
+    "id": "cousine",
+    "name": "Cousine (Courier)",
+    "css": "WorkshopCousine",
+    "variants": {
+      "regular": "cousine-regular.ttf",
+      "bold": "cousine-bold.ttf",
+      "italic": "cousine-italic.ttf",
+      "boldItalic": "cousine-boldItalic.ttf"
+    }
+  },
+  {
+    "id": "noto",
+    "name": "Noto Sans",
+    "css": "WorkshopNoto",
+    "variants": {
+      "regular": "noto-regular.ttf",
+      "bold": "noto-bold.ttf",
+      "italic": "noto-italic.ttf",
+      "boldItalic": "noto-boldItalic.ttf"
+    }
+  },
+  {
+    "id": "arabic",
+    "name": "Noto Sans Arabic",
+    "css": "WorkshopArabic",
+    "variants": {
+      "regular": "arabic-regular.ttf",
+      "bold": "arabic-bold.ttf"
+    }
+  },
+  {
+    "id": "dejavu",
+    "name": "DejaVu Sans",
+    "css": "WorkshopDejavu",
+    "variants": {
+      "regular": "dejavu-regular.ttf",
+      "bold": "dejavu-bold.ttf"
+    }
+  },
+  {
+    "id": "dejavuserif",
+    "name": "DejaVu Serif",
+    "css": "WorkshopDejavuserif",
+    "variants": {
+      "regular": "dejavuserif-regular.ttf",
+      "bold": "dejavuserif-bold.ttf"
+    }
+  },
+  {
+    "id": "dejavumono",
+    "name": "DejaVu Mono",
+    "css": "WorkshopDejavumono",
+    "variants": {
+      "regular": "dejavumono-regular.ttf",
+      "bold": "dejavumono-bold.ttf",
+      "italic": "dejavumono-italic.ttf",
+      "boldItalic": "dejavumono-boldItalic.ttf"
+    }
+  },
+  {
+    "id": "script",
+    "name": "Dancing Script",
+    "css": "WorkshopScript",
+    "variants": {
+      "regular": "DancingScript.ttf"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "file": "vendor/fontkit.umd.min.js",
+  "originalCJKCharacters": 55117,
+  "remainingCJKCharacters": 0,
+  "updatedStringLiterals": 1553,
+  "stringValuesUnchanged": true,
+  "stringValuesSHA256": "fb5ec2d11947b2fd9609f2535dde7d1bd8a67d590d7c240e6da5fba6000cbd29",
+  "action": "Required encoding data preserved as ASCII Unicode escape sequences, including supplementary CJK planes."
+}
