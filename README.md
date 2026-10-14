@@ -24,17 +24,48 @@ internet access. Use `index.html` for offline work and GitHub Pages.
 
 ## Tools and Features
 
-PDF Workshop is a browser-based PDF editor built with open-source components. 
-The offline edition processes documents locally on your device without uploading your files to a server.
+PDF Workshop is a browser-based PDF editor built with open-source components.
+The offline edition processes documents locally on your device without uploading
+your files to a server.
 
-- Open and merge files: Open PDFs and images, convert images into PDF pages, and combine multiple files into one document.
-- **Save as PDF when OCR finishes:** optional automatic download after successful
-  recognition. Cancelled runs and runs without recognized text do not trigger it.
-- **Print:** use the browser print dialog to choose printer, paper, range and
-  scale. Current edits are included. Shortcut: `Ctrl+P`.
-- **Save as:** choose a new PDF filename. Supported browsers offer a system save
-  picker; others download the renamed file. Shortcut: `Ctrl+Shift+S`. Cancelling
-  preserves the document name and unsaved-changes state.
+- **Open and merge files:** Open PDFs and images, convert images into PDF pages,
+  and combine multiple files into one document.
+- **Organize pages:** Rotate, reorder, delete, insert and extract pages, or split
+  a PDF into separate documents.
+- **Edit existing text:** Replace or remove PDF text. Adjust the font, size,
+  color, bold, italic and underline settings.
+- **Identify text formatting:** Read font information from PDF text and estimate
+  fonts, styles and sizes in scanned documents.
+- **OCR in 14 languages:** Recognize text in scanned pages using bundled language
+  models. Select individual languages or combine multiple languages.
+- **Save searchable PDFs:** Preserve the original page appearance and images
+  while adding recognized text as an invisible, searchable and selectable layer.
+  Optional automatic saving is available after OCR.
+- **Export documents:** Save as PDF, DOCX, TXT, XLSX, JPEG or PNG. DOCX offers
+  editable-text and page-image modes; XLSX creates a worksheet for each PDF page.
+- **Save and Save as:** Download your edited PDF with its current name or choose
+  a new filename. Supported browsers also offer a save-location picker.
+- **Print documents:** Print the edited PDF through your browser's print dialog,
+  with printer, paper, page-range and scaling options.
+- **Add text and annotations:** Insert text, images, shapes, highlights,
+  drawings, sticky notes and keyboard-typed comments.
+- **Apply stamps:** Use predefined text stamps or upload PNG stamps with
+  transparent backgrounds.
+- **Fill forms and add signatures:** Complete PDF form fields and add
+  handwritten, typed or image-based signatures, dates and marks.
+- **Redact sensitive content:** Permanently remove content from marked areas
+  when saving. Adjust the fill opacity; redacted pages are converted to images.
+- **Manage links:** Read, open, add and remove PDF links, including web, email,
+  telephone and internal page links.
+- **Open PDFs from URLs:** Open a link in a new browser tab, download the PDF
+  and import it into PDF Workshop.
+- **Protect PDFs:** Encrypt documents with AES-256, set opening and owner
+  passwords, and configure printing, copying and editing permissions.
+- **Add document details:** Apply watermarks and page numbers, and edit
+  document metadata.
+- **Customize your workspace:** Search document text, undo or redo changes,
+  switch between light and dark themes, and use keyboard shortcuts.
+  English, German and Turkish interfaces are available.
 
 ## Edit existing text and formatting
 
@@ -173,24 +204,6 @@ python3 src/build.py --online
 On Windows, use `py` instead of `python3` if needed. No extra Python packages are
 required. Dependencies are in `src/vendor/` and `src/fonts/`.
 
-## Publish on GitHub Pages
-
-1. Create a public repository, for example `pdf-workshop`.
-2. Extract the source ZIP and copy the **contents** of its `pdf-workshop` folder
-   into your repository, keeping `index.html` at the repository root.
-3. Commit and publish with GitHub Desktop. The HTML exceeds the 25 MiB browser
-   upload limit; each extracted file is below the 100 MiB Git file limit.
-4. Open **Settings → Pages**. Choose **Deploy from a branch**, **main** and
-   **/(root)**, then save.
-5. After publication, click **Visit site**.
-
-`.nojekyll` enables static deployment. No web build is needed for the compiled
-`index.html`. For updates, edit sources, rebuild, commit and push. First loading
-may take time because the embedded application is large. Download `index.html`
-for offline use.
-
-Official guides: [GitHub Desktop](https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop),
-[Pages setup](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
 ## Components and licenses
 
@@ -228,13 +241,3 @@ unchanged as ASCII Unicode escapes; `src/character-audit.json` records the audit
 - Redacted pages become images. Paragraphs do not automatically reflow.
 - Glyph coverage depends on fonts; suitable fallbacks support Latin, Cyrillic,
   Greek and Arabic characters.
-
-## Validation of this English build
-
-The build passed 22 browser checks with networking disabled: English startup,
-PDF opening, the usage guide, all three interface languages, the 14-language OCR
-catalog, English OCR recognition, searchable PDF saving, Save as, printing,
-discard-button colors, language persistence and no JavaScript errors or external
-requests. OCR output retained page sizes, CropBoxes and rotation, with searchable
-text verified on ordinary and rotated scans. Bundled engines, models, fonts and
-license files were checked against the original v0.1.3 archive.
