@@ -1,4 +1,4 @@
-<h1 align="center">PDF Workshop</h1>
+<h1 align="center">PDF Werkstatt</h1>
 
 <p align="center">
   A free, open-source PDF editor that runs entirely in your browser.<br>
@@ -19,9 +19,9 @@
   &nbsp;·&nbsp; <a href="#quick-start">Quick start</a>
 </p>
 
-![PDF Workshop editor with a document open, page thumbnails and the tools panel](docs/screenshot-editor.jpg)
+![PDF Werkstatt editor with a document open, page thumbnails and the tools panel](docs/screenshot-editor.jpg)
 
-PDF Workshop is a browser-based PDF editor with local document processing. It
+PDF Werkstatt is a browser-based PDF editor with local document processing. It
 needs no installation, no account and no upload: PDF files and passwords are
 processed on your device. Use it online, or download a single HTML file that
 also works without an internet connection.
@@ -39,19 +39,19 @@ content or existing annotations.
 2. Choose **Choose files**, or drag a PDF/image into the window.
 3. Select a tool, make changes and use **Save**, **Save as** or **Export PDF**.
 
-![PDF Workshop home screen with the most used tools](docs/screenshot-home.png)
+![PDF Werkstatt home screen with the most used tools](docs/screenshot-home.png)
 
 `index.html` is self-contained (about 64 MiB): PDF engines, fonts, the OCR worker
 and all 14 OCR language models are embedded. External links need a connection.
 The browser may remember the language, theme and signatures you explicitly
 choose to remember; document files and passwords are not saved to local storage.
 
-`PDF-Workshop-online.html` loads basic PDF/font/ZIP libraries from CDNs and needs
+`PDF-Werkstatt-online.html` loads basic PDF/font/ZIP libraries from CDNs and needs
 internet access. Use `index.html` for offline work and GitHub Pages.
 
 ## Tools and Features
 
-PDF Workshop is a browser-based PDF editor built with open-source components.
+PDF Werkstatt is a browser-based PDF editor built with open-source components.
 The offline edition processes documents locally on your device without uploading
 your files to a server.
 
@@ -85,7 +85,7 @@ your files to a server.
 - **Manage links:** Read, open, add and remove PDF links, including web, email,
   telephone and internal page links.
 - **Open PDFs from URLs:** Open a link in a new browser tab, download the PDF
-  and import it into PDF Workshop.
+  and import it into PDF Werkstatt.
 - **Protect PDFs:** Encrypt documents with AES-256, set opening and owner
   passwords, and configure printing, copying and editing permissions.
 - **Add document details:** Apply watermarks and page numbers, and edit

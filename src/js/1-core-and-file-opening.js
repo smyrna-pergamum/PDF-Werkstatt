@@ -2,7 +2,7 @@
 'use strict';
 
 /* =========================================================================
-   PDF Workshop — a local browser-based PDF editor
+   PDF Werkstatt — a local browser-based PDF editor
    Rendering: pdf.js · Writing: pdf-lib (+fontkit) · ZIP: JSZip
    ========================================================================= */
 
@@ -280,7 +280,7 @@ async function imageToPdfBytes(bytes, mime, fit) {
     const page = doc.addPage([w * s, hh * s]);
     page.drawImage(emb, { x: 0, y: 0, width: w * s, height: hh * s });
   }
-  doc.setProducer('PDF Workshop'); doc.setCreator('PDF Workshop');
+  doc.setProducer('PDF Werkstatt'); doc.setCreator('PDF Werkstatt');
   return doc.save();
 }
 function askPassword(name, wrong) {
@@ -478,7 +478,7 @@ function renderHome() {
   v.append(h('div', { class: 'wrap' },
     h('div', { class: 'hero' },
       h('div', null,
-        h('h1', null, 'PDF Atölyesi'),
+        h('h1', null, 'PDF Werkstatt'),
         h('p', { class: 'lead' }, 'PDF metinlerini düzenleyin, taramaları okuyun, dosyaları dönüştürüp koruyun. Açık kaynak bileşenlerle yerel çalışma: dosyalarınız cihazınızda kalır.'),
         h('div', { class: 'acts' },
           h('button', { class: 'btn primary', type: 'button', onclick: () => pickFiles(ACCEPT_ALL).then(openFiles) }, I('folder-open', 18), 'PDF aç'),

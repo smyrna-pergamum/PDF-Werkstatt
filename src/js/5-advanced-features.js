@@ -1,5 +1,5 @@
 
-/* PDF Workshop: true text replacement, local OCR, encryption and links.
+/* PDF Werkstatt: true text replacement, local OCR, encryption and links.
    MuPDF 1.26.4 (AGPL-3.0-or-later), Tesseract.js 7.0.0 (Apache-2.0).
    Engines are embedded; documents and passwords are not sent to a server. */
 let mupdfPromise;

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build PDF Workshop v0.1.3 from bundled local sources.
+"""Build PDF Werkstatt v0.1.3 from bundled local sources.
 
 python3 src/build.py           -> index.html (fully offline)
-python3 src/build.py --online  -> PDF-Workshop-online.html (basic libraries use CDNs)
+python3 src/build.py --online  -> PDF-Werkstatt-online.html (basic libraries use CDNs)
 
 Requires Python 3 only; no additional packages are needed.
 """
@@ -72,7 +72,7 @@ def build(online: bool = False) -> Path:
             if tag not in html:
                 raise SystemExit(f'Missing library tag in template: {tag}')
             html = html.replace(tag, f'<script>/* {filename}: see licenses/ for license details. */\n{code}\n</script>')
-    output = ROOT.parent / ('PDF-Workshop-online.html' if online else 'index.html')
+    output = ROOT.parent / ('PDF-Werkstatt-online.html' if online else 'index.html')
     output.write_text(html, encoding='utf-8')
     return output
 

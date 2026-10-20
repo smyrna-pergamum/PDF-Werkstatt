@@ -242,7 +242,7 @@ async function buildPdf(pages = S.doc.pages, includeDecor = true) {
   if (pr.author) out.setAuthor(pr.author);
   if (pr.subject) out.setSubject(pr.subject);
   if (pr.keywords) out.setKeywords(pr.keywords.split(',').map(s => s.trim()).filter(Boolean));
-  out.setProducer('PDF Workshop'); out.setCreator('PDF Workshop');
+  out.setProducer('PDF Werkstatt'); out.setCreator('PDF Werkstatt');
   if (!pr.clean) { out.setCreationDate(now); out.setModificationDate(now); }
   else { out.setCreationDate(now); out.setModificationDate(now); }
   return out.save({ useObjectStreams: true });
@@ -299,8 +299,8 @@ async function exportText() {
    ========================================================================= */
 function aboutDialog() {
   const k = (a, b) => [h('div', null, ...a.split(' + ').flatMap((x, i) => i ? [' + ', h('kbd', null, x)] : [h('kbd', null, x)])), h('div', null, b)];
-  dialog('PDF Atölyesi hakkında', h('div', null,
-    h('p', null, 'PDF Atölyesi, tarayıcıda çalışan bir PDF düzenleyicidir. Dosyalarınız hiçbir sunucuya yüklenmez.'),
+  dialog('PDF Werkstatt hakkında', h('div', null,
+    h('p', null, 'PDF Werkstatt, tarayıcıda çalışan bir PDF düzenleyicidir. Dosyalarınız hiçbir sunucuya yüklenmez.'),
     h('h4', { style: { margin: '14px 0 6px' } }, 'Klavye kısayolları'),
     h('div', { class: 'kbd' },
       k('Ctrl + O', 'Dosya aç'), k('Ctrl + S', 'Kaydet'), k('Ctrl + Z', 'Geri al'), k('Ctrl + Y', 'Yinele'),
@@ -366,7 +366,7 @@ function onKey(e) {
 }
 function init() {
   if (!pdfjs || !PL || !FK) {
-    document.body.replaceChildren(h('div', { class: 'libwarn' }, h('h2', null, 'PDF Atölyesi yüklenemedi'),
+    document.body.replaceChildren(h('div', { class: 'libwarn' }, h('h2', null, 'PDF Werkstatt yüklenemedi'),
       h('p', null, 'Gerekli kütüphaneler indirilemedi. İnternet bağlantınızı kontrol edip sayfayı yenileyin.')));
     return;
   }

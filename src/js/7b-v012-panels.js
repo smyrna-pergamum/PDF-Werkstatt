@@ -9,7 +9,7 @@ async function openUrlInTabFlow(){
   if(!url)return;
   const link=h('a',{href:url,target:'_blank',rel:'noopener noreferrer',class:'btn'},tr('Bağlantıyı yeniden aç'));
   const files=await dialog(tr('İndirilen PDF’yi aktar'),h('div',null,h('ol',{class:'usage-steps'},
-    h('li',null,tr('Yeni sekmede PDF’yi açın ve indirin.')),h('li',null,tr('PDF Atölyesi sekmesine dönün.')),h('li',null,tr('Aşağıdaki düğmeyle indirdiğiniz PDF’yi seçin.'))),link,
+    h('li',null,tr('Yeni sekmede PDF’yi açın ve indirin.')),h('li',null,tr('PDF Werkstatt sekmesine dönün.')),h('li',null,tr('Aşağıdaki düğmeyle indirdiğiniz PDF’yi seçin.'))),link,
     h('p',{class:'hint'},tr('Tarayıcı indirme klasörünüzü otomatik okuyamaz. Aktarılacak dosyayı siz seçersiniz.'))),[
       {label:tr('Kapat'),value:null},{label:tr('İndirilen PDF’yi seç'),kind:'primary',onClick:async close=>{const files=await pickFiles(ACCEPT_PDF,false);if(files.length)close(files);else return false;}}
     ],{width:600});
@@ -82,7 +82,7 @@ PANES.redact=function(){const pane=v012RedactPane();pane.prepend(opacityControl(
 const v012Pane=renderPane;
 renderPane=function(){v012Pane();if(S.doc&&S.sel){const it=itemOf(pageById(S.sel.pageId),S.sel.itemId);if(it?.role==='pngstamp')$('#pane .selbox .t').firstChild.textContent=tr('PNG damga');}};
 async function usageGuideDialog(){
-  const body=h('div',{class:'usage-guide'},h('p',{class:'lead'},tr('PDF Atölyesi v0.1.3: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.')));
+  const body=h('div',{class:'usage-guide'},h('p',{class:'lead'},tr('PDF Werkstatt v0.1.3: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.')));
   const sections=[
     ['Dosya ve bağlantı açma','Bilgisayarınızdaki PDF’yi Dosya seç düğmesiyle veya sürükleyerek açın. URL bağlantısı yeni sekmede açılır; indirilen dosyayı programa seçerek aktarın.'],
     ['Metin düzenleme ve biçim','PDF’i düzenle → Mevcut metni düzenle seçin, yazıya tıklayın. Font, kalın, italik, alt çizgi, punto ve renk seçebilirsiniz. Kaydetme eski metni kaldırır. Seçili metnin biçimini sağ panelden sonradan değiştirebilirsiniz.'],

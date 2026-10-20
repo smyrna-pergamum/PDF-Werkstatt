@@ -355,7 +355,7 @@ const PANES = {
     return h('div', null,
       fld('Başlık', 'title'), fld('Yazar', 'author'), fld('Konu', 'subject'), fld('Anahtar sözcükler', 'keywords', 'virgülle ayırın'),
       h('label', { class: 'check' }, clean, h('span', null, 'Kaydederken yukarıdakiler dışındaki tüm meta verileri temizle')),
-      h('p', { class: 'hint' }, `Dosya adı: ${S.doc.name}. Kaydedilen dosyada oluşturucu olarak “PDF Workshop” yazar.`));
+      h('p', { class: 'hint' }, `Dosya adı: ${S.doc.name}. Kaydedilen dosyada oluşturucu olarak “PDF Werkstatt” yazar.`));
   },
 };
 async function countFields() {

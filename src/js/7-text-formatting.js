@@ -1,4 +1,4 @@
-/* PDF Workshop v0.1.3 — local fonts and editable text formats. */
+/* PDF Werkstatt v0.1.3 — local fonts and editable text formats. */
 const APP_VERSION = '0.1.3';
 const FAMILIES = FONT_META;
 const fontObjects = new Map(), fontMetrics = new Map();

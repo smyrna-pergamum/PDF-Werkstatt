@@ -65,7 +65,7 @@ Yeni sekmede aç|Open in new tab|In neuem Tab öffnen
 Bağlantıyı yeniden aç|Open link again|Link erneut öffnen
 İndirilen PDF’yi aktar|Import downloaded PDF|Heruntergeladenes PDF importieren
 Yeni sekmede PDF’yi açın ve indirin.|Open and download the PDF in the new tab.|PDF im neuen Tab öffnen und herunterladen.
-PDF Atölyesi sekmesine dönün.|Return to the PDF Workshop tab.|Zum PDF-Werkstatt-Tab zurückkehren.
+PDF Werkstatt sekmesine dönün.|Return to the PDF Werkstatt tab.|Zum Tab „PDF Werkstatt“ zurückkehren.
 Aşağıdaki düğmeyle indirdiğiniz PDF’yi seçin.|Select the downloaded PDF using the button below.|Heruntergeladenes PDF mit der Schaltfläche unten auswählen.
 Tarayıcı indirme klasörünüzü otomatik okuyamaz. Aktarılacak dosyayı siz seçersiniz.|The browser cannot automatically read your downloads folder. You select the file to import.|Der Browser kann Ihren Downloadordner nicht automatisch lesen. Sie wählen die Datei zum Importieren aus.
 İndirilen PDF’yi seç|Select downloaded PDF|Heruntergeladenes PDF auswählen
@@ -103,7 +103,7 @@ PNG damga|PNG stamp|PNG-Stempel
 Karartma opaklığı|Redaction fill opacity|Deckkraft der Schwärzung
 Opaklık yalnızca dolgunun koyuluğunu değiştirir. Alttaki metin ve görüntü kaydedilen PDF’den kalıcı olarak kaldırılır.|Opacity changes only the fill darkness. Underlying text and images are permanently removed from the saved PDF.|Die Deckkraft ändert nur die Füllungsdunkelheit. Text und Bilder darunter werden aus dem gespeicherten PDF dauerhaft entfernt.
 Kullanım rehberi|User guide|Bedienungsanleitung
-PDF Atölyesi v0.1.3: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.|PDF Workshop v0.1.3 processes documents on your device. Start by choosing the tool you need.|PDF-Werkstatt v0.1.3 verarbeitet Dokumente auf Ihrem Gerät. Wählen Sie das benötigte Werkzeug.
+PDF Werkstatt v0.1.3: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.|PDF Werkstatt v0.1.3 processes documents on your device. Start by choosing the tool you need.|PDF Werkstatt v0.1.3 verarbeitet Dokumente auf Ihrem Gerät. Wählen Sie das benötigte Werkzeug.
 Dosya ve bağlantı açma|Open files and links|Dateien und Links öffnen
 Bilgisayarınızdaki PDF’yi Dosya seç düğmesiyle veya sürükleyerek açın. URL bağlantısı yeni sekmede açılır; indirilen dosyayı programa seçerek aktarın.|Open a local PDF with Choose files or drag and drop. URLs open in a new tab; select the downloaded file to import it.|Lokales PDF über Dateien auswählen oder per Ziehen öffnen. URLs öffnen in einem neuen Tab; heruntergeladene Datei zum Importieren auswählen.
 Metin düzenleme ve biçim|Edit and format text|Text bearbeiten und formatieren
@@ -179,7 +179,7 @@ Bu imzayı bu tarayıcıda hatırla|Remember signature in this browser|Unterschr
 Önce adınızı yazın.|Enter your name first.|Zuerst Namen eingeben.
 Önce bir görsel seçin.|Choose an image first.|Zuerst Bild auswählen.
 İmza boş görünüyor.|The signature appears empty.|Die Unterschrift scheint leer zu sein.
-PDF Atölyesi|PDF Workshop|PDF-Werkstatt
+PDF Werkstatt|PDF Werkstatt|PDF Werkstatt
 Ana sayfa|Home|Startseite
 Araçlar|Tools|Werkzeuge
 Tüm araçlar|All tools|Alle Werkzeuge
@@ -463,7 +463,7 @@ PDF indiriliyor…|Downloading PDF…|PDF wird heruntergeladen…
 Bağlantı bir PDF dosyası döndürmedi.|The link did not return a PDF file.|Der Link hat keine PDF-Datei geliefert.
 URL açılamadı. Sunucu CORS izni vermiyor veya bağlantı erişilemiyor.|Could not open URL. CORS is blocked or the link is unavailable.|URL konnte nicht geöffnet werden. CORS ist gesperrt oder der Link ist nicht erreichbar.
 Sayfa|Page|Seite
-PDF Atölyesi hakkında|About PDF Workshop|Über PDF-Werkstatt
+PDF Werkstatt hakkında|About PDF Werkstatt|Über PDF Werkstatt
 Klavye kısayolları|Keyboard shortcuts|Tastenkürzel
 Bilinen sınırlar|Known limitations|Bekannte Grenzen
 Açık kaynak bileşenler|Open-source components|Open-Source-Komponenten
@@ -519,7 +519,7 @@ Adınız ve soyadınız|Your full name|Vor- und Nachname
 Dosyaları ne yapalım?|What should happen to these files?|Was soll mit den Dateien geschehen?
 Yeni belge olarak aç|Open as new document|Als neues Dokument öffnen
 Belgeye ekle|Add to document|Zum Dokument hinzufügen
-PDF Atölyesi yüklenemedi|PDF Workshop could not load|PDF-Werkstatt konnte nicht geladen werden
+PDF Werkstatt yüklenemedi|PDF Werkstatt could not load|PDF Werkstatt konnte nicht geladen werden
 Gerekli kütüphaneler indirilemedi. İnternet bağlantınızı kontrol edip sayfayı yenileyin.|Required libraries could not load. Check the connection or use the offline version.|Benötigte Bibliotheken konnten nicht geladen werden. Verbindung prüfen oder Offline-Version verwenden.
 Metin değiştirme, OCR, dışa aktarma, bağlantılar ve parola koruması bu sürüme eklendi.|This version includes text replacement, OCR, exports, links and password protection.|Diese Version bietet Textersetzung, OCR, Export, Links und Passwortschutz.
 Yeni metin Inter ile yazılır; eski paragrafların düzeni otomatik olarak yeniden akmaz.|Replacement text uses Inter; existing paragraphs do not reflow automatically.|Ersatztext verwendet Inter; bestehende Absätze werden nicht automatisch neu umbrochen.
@@ -551,7 +551,7 @@ const UI_PATTERNS=[
  ['Bu belgede {0} form alanı var. Alanların içine tıklayıp doğrudan yazabilirsiniz.','This document has {0} form fields. Click a field to fill it.','Dieses Dokument hat {0} Formularfelder. Zum Ausfüllen in ein Feld klicken.'],
  ['{0} sayfadan {1} dosya oluşur.','{0} pages produce {1} files.','Aus {0} Seiten werden {1} Dateien.'],
  ['{0} alan karartma için işaretli.','{0} areas marked for redaction.','{0} Bereiche zum Schwärzen markiert.'],
- ['Dosya adı: {0}. Kaydedilen dosyada oluşturucu olarak “PDF Workshop” yazar.','Filename: {0}. The creator is recorded as PDF Workshop.','Dateiname: {0}. PDF-Werkstatt wird als Ersteller eingetragen.'],
+ ['Dosya adı: {0}. Kaydedilen dosyada oluşturucu olarak “PDF Werkstatt” yazar.','Filename: {0}. The creator is recorded as PDF Werkstatt.','Dateiname: {0}. PDF Werkstatt wird als Ersteller eingetragen.'],
  ['Beklenmeyen bir hata oluştu: {0}','An unexpected error occurred: {0}','Unerwarteter Fehler: {0}'],
  ['“{0}” parola korumalı. Açmak için parolayı girin.','“{0}” is password protected. Enter the password.','„{0}“ ist passwortgeschützt. Passwort eingeben.'],
  ['Parola yanlış. “{0}” için parolayı yeniden girin.','Incorrect password. Try again for “{0}”.','Falsches Passwort. Für „{0}“ erneut eingeben.'],
@@ -577,8 +577,8 @@ function tr(value){
 function applyLanguage(language,rebuild=true){
   commitEditing();uiLang=['tr','en','de'].includes(language)?language:'en';
   try{localStorage.setItem('pdf-workshop.language',uiLang);}catch{}
-  document.documentElement.lang=uiLang;document.title=tr('PDF Atölyesi')+' v'+APP_VERSION;
-  $('#brand .txt').textContent=tr('PDF Atölyesi')+' v'+APP_VERSION;$('#brand').setAttribute('aria-label',tr('PDF Atölyesi')+' · '+tr('Ana sayfa'));
+  document.documentElement.lang=uiLang;document.title=tr('PDF Werkstatt')+' v'+APP_VERSION;
+  $('#brand .txt').textContent=tr('PDF Werkstatt')+' v'+APP_VERSION;$('#brand').setAttribute('aria-label',tr('PDF Werkstatt')+' · '+tr('Ana sayfa'));
   $('#languageSelect').value=uiLang;$('#languageSelect').setAttribute('aria-label',tr('Arayüz dili'));
   for(const [id,title,aria]of [['themeBtn','Açık / koyu tema','Temayı değiştir'],['aboutBtn','Kullanım rehberi','Kullanım rehberi'],['thumbs',null,'Sayfa küçük resimleri'],['pane',null,'Araç paneli']]){
     const e=$('#'+id);if(title)e.title=tr(title);e.setAttribute('aria-label',tr(aria));
@@ -622,7 +622,7 @@ runSearch=async function(q,dir=1){
 const baseMarkDirty=markDirty;
 markDirty=function(){S.search=null;baseMarkDirty();};
 aboutDialog=function(){
-  dialog(tr('PDF Atölyesi hakkında'),h('div',null,h('p',null,tr('Metin değiştirme, OCR, dışa aktarma, bağlantılar ve parola koruması bu sürüme eklendi.')),
+  dialog(tr('PDF Werkstatt hakkında'),h('div',null,h('p',null,tr('Metin değiştirme, OCR, dışa aktarma, bağlantılar ve parola koruması bu sürüme eklendi.')),
     h('h4',null,tr('Klavye kısayolları')),h('p',null,'Ctrl+O · Ctrl+S · Ctrl+Z · Ctrl+Y · Ctrl+F · Delete · Esc'),
     h('h4',null,tr('Bilinen sınırlar')),h('ul',null,
       h('li',null,tr('Yeni metin Inter ile yazılır; eski paragrafların düzeni otomatik olarak yeniden akmaz.')),
