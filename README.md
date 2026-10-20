@@ -1,18 +1,45 @@
-# PDF Workshop v0.1.3
+<h1 align="center">PDF Workshop</h1>
 
-A browser-based PDF editor with local document processing. Open `index.html`
-in Chrome, Edge or Firefox. The offline version needs no installation or internet
-connection. PDF files and passwords are processed on your device.
+<p align="center">
+  A free, open-source PDF editor that runs entirely in your browser.<br>
+  Edit text, run OCR, convert, sign and protect PDFs. Your files never leave your device.
+</p>
 
-This package starts in **English**. Turkish and German interface options remain
-available. Changing the interface language does not translate document content
-or existing annotations.
+<p align="center">
+  <a href="https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest"><img src="https://img.shields.io/github/v/release/smyrna-pergamum/PDF-Werkstatt?color=4f7ce8&label=release" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/smyrna-pergamum/PDF-Werkstatt?color=4f7ce8" alt="License: AGPL-3.0"></a>
+  <img src="https://img.shields.io/badge/runs%20in-Chrome%20%7C%20Edge%20%7C%20Firefox-1b2130" alt="Runs in Chrome, Edge and Firefox">
+  <img src="https://img.shields.io/badge/works-offline-1b2130" alt="Works offline">
+</p>
+
+<p align="center">
+  <a href="https://smyrna-pergamum.github.io/PDF-Werkstatt/"><b>▶ Try it online</b></a>
+  &nbsp;·&nbsp; <a href="https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest"><b>⬇ Download offline version</b></a>
+  &nbsp;·&nbsp; <a href="#tools-and-features">Features</a>
+  &nbsp;·&nbsp; <a href="#quick-start">Quick start</a>
+</p>
+
+![PDF Workshop editor with a document open, page thumbnails and the tools panel](docs/screenshot-editor.jpg)
+
+PDF Workshop is a browser-based PDF editor with local document processing. It
+needs no installation, no account and no upload: PDF files and passwords are
+processed on your device. Use it online, or download a single HTML file that
+also works without an internet connection.
+
+The interface starts in **English**. Turkish and German interface options are
+also available. Changing the interface language does not translate document
+content or existing annotations.
 
 ## Quick start
 
-1. Open `index.html` by double-clicking it, or visit your GitHub Pages address.
+1. **Online:** open <https://smyrna-pergamum.github.io/PDF-Werkstatt/>.
+   **Offline:** download the offline version from the
+   [latest release](https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest),
+   extract it and open `index.html` in Chrome, Edge or Firefox.
 2. Choose **Choose files**, or drag a PDF/image into the window.
 3. Select a tool, make changes and use **Save**, **Save as** or **Export PDF**.
+
+![PDF Workshop home screen with the most used tools](docs/screenshot-home.png)
 
 `index.html` is self-contained (about 64 MiB): PDF engines, fonts, the OCR worker
 and all 14 OCR language models are embedded. External links need a connection.
@@ -194,7 +221,7 @@ Turkish lookup keys and Turkish/German translations remain intentionally in the
 language resources. Filenames, build messages, comments and this guide are in
 English. Document text is never translated by switching the interface language.
 
-Run from the `pdf-workshop` folder with Python 3:
+Run from the repository root (the `PDF-Werkstatt` folder) with Python 3:
 
 ```bash
 python3 src/build.py
