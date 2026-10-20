@@ -82,7 +82,7 @@ PANES.redact=function(){const pane=v012RedactPane();pane.prepend(opacityControl(
 const v012Pane=renderPane;
 renderPane=function(){v012Pane();if(S.doc&&S.sel){const it=itemOf(pageById(S.sel.pageId),S.sel.itemId);if(it?.role==='pngstamp')$('#pane .selbox .t').firstChild.textContent=tr('PNG damga');}};
 async function usageGuideDialog(){
-  const body=h('div',{class:'usage-guide'},h('p',{class:'lead'},tr('PDF Werkstatt v0.1.3: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.')));
+  const body=h('div',{class:'usage-guide'},h('p',{class:'lead'},tr('PDF Werkstatt v0.1.4: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.')));
   const sections=[
     ['Dosya ve bağlantı açma','Bilgisayarınızdaki PDF’yi Dosya seç düğmesiyle veya sürükleyerek açın. URL bağlantısı yeni sekmede açılır; indirilen dosyayı programa seçerek aktarın.'],
     ['Metin düzenleme ve biçim','PDF’i düzenle → Mevcut metni düzenle seçin, yazıya tıklayın. Font, kalın, italik, alt çizgi, punto ve renk seçebilirsiniz. Kaydetme eski metni kaldırır. Seçili metnin biçimini sağ panelden sonradan değiştirebilirsiniz.'],

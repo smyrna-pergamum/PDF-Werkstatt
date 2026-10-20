@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build PDF Werkstatt v0.1.3 from bundled local sources.
+"""Build PDF Werkstatt v0.1.4 from bundled local sources.
 
 python3 src/build.py           -> index.html (fully offline)
 python3 src/build.py --online  -> PDF-Werkstatt-online.html (basic libraries use CDNs)

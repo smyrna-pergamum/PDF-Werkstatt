@@ -103,7 +103,7 @@ PNG damga|PNG stamp|PNG-Stempel
 Karartma opaklığı|Redaction fill opacity|Deckkraft der Schwärzung
 Opaklık yalnızca dolgunun koyuluğunu değiştirir. Alttaki metin ve görüntü kaydedilen PDF’den kalıcı olarak kaldırılır.|Opacity changes only the fill darkness. Underlying text and images are permanently removed from the saved PDF.|Die Deckkraft ändert nur die Füllungsdunkelheit. Text und Bilder darunter werden aus dem gespeicherten PDF dauerhaft entfernt.
 Kullanım rehberi|User guide|Bedienungsanleitung
-PDF Werkstatt v0.1.3: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.|PDF Werkstatt v0.1.3 processes documents on your device. Start by choosing the tool you need.|PDF Werkstatt v0.1.3 verarbeitet Dokumente auf Ihrem Gerät. Wählen Sie das benötigte Werkzeug.
+PDF Werkstatt v0.1.4: belgeler cihazınızda işlenir. İhtiyaç duyduğunuz aracı seçerek başlayın.|PDF Werkstatt v0.1.4 processes documents on your device. Start by choosing the tool you need.|PDF Werkstatt v0.1.4 verarbeitet Dokumente auf Ihrem Gerät. Wählen Sie das benötigte Werkzeug.
 Dosya ve bağlantı açma|Open files and links|Dateien und Links öffnen
 Bilgisayarınızdaki PDF’yi Dosya seç düğmesiyle veya sürükleyerek açın. URL bağlantısı yeni sekmede açılır; indirilen dosyayı programa seçerek aktarın.|Open a local PDF with Choose files or drag and drop. URLs open in a new tab; select the downloaded file to import it.|Lokales PDF über Dateien auswählen oder per Ziehen öffnen. URLs öffnen in einem neuen Tab; heruntergeladene Datei zum Importieren auswählen.
 Metin düzenleme ve biçim|Edit and format text|Text bearbeiten und formatieren

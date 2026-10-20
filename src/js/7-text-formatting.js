@@ -1,5 +1,5 @@
-/* PDF Werkstatt v0.1.3 — local fonts and editable text formats. */
-const APP_VERSION = '0.1.3';
+/* PDF Werkstatt v0.1.4 — local fonts and editable text formats. */
+const APP_VERSION = '0.1.4';
 const FAMILIES = FONT_META;
 const fontObjects = new Map(), fontMetrics = new Map();
 const familyById = id => FAMILIES.find(f=>f.id===id)||FAMILIES[0];
