@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF Werkstatt, edit any PDF in your browser</title>
+<meta name="description" content="Edit text, run OCR in 14 languages, sign, redact and protect PDFs in your browser. Free, open source, and your files never leave your device.">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/page-scan.webp">
+<link rel="stylesheet" href="page.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24"><path d="m21 17-2.16-1.87a.5.5 0 0 0-.84.37v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.55-4-3.97-8.5-4a1 1 0 0 0 0 5c4.15 0 4.75-11.3 5.7-13.5a2.5 2.5 0 1 1 3.32 3.28"/><path d="M3 21h18"/></symbol>
+  <symbol id="i-redact" viewBox="0 0 24 24"><path d="M10.73 5.08a10.74 10.74 0 0 1 11.2 6.57 1 1 0 0 1 0 .7 10.75 10.75 0 0 1-1.44 2.49"/><path d="M14.08 14.16a3 3 0 0 1-4.24-4.24"/><path d="M17.48 17.5a10.75 10.75 0 0 1-15.42-5.15 1 1 0 0 1 0-.7 10.75 10.75 0 0 1 4.45-5.14"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="i-merge" viewBox="0 0 24 24"><path d="M20 7h-3a2 2 0 0 1-2-2V2"/><path d="M9 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l4 4v10a2 2 0 0 1-2 2Z"/><path d="M3 7.6v12.8A1.6 1.6 0 0 0 4.6 22h9.8"/></symbol>
+  <symbol id="i-export" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/><path d="M5 12.86a10 10 0 0 1 5.17-2.69"/><path d="M19 12.86a10 10 0 0 0-2-1.52"/><path d="M2 8.82a15 15 0 0 1 4.18-2.64"/><path d="M22 8.82a15 15 0 0 0-11.29-3.76"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="i-arrows" viewBox="0 0 24 24"><path d="m9 18-6-6 6-6"/><path d="m15 6 6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3v18l15-9Z"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="slab on-ink">
+  <div class="container">
+    <a class="wordmark" href="#top" aria-label="PDF Werkstatt, back to the top"><img src="assets/icon.png" width="28" height="28" alt=""><span>PDF Werkstatt</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#everything">Tools</a>
+      <a href="#try">Try it</a>
+      <a href="#type">Fonts</a>
+      <a href="#bench">Offline</a>
+    </nav>
+    <a class="btn btn--small" href="https://github.com/smyrna-pergamum/PDF-Werkstatt">Source on GitHub</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- hero: the glyph bench -->
+<section class="hero on-ink" id="top">
+  <div class="container hero-grid">
+    <div>
+      <h1>Edit any PDF. Upload nothing.</h1>
+      <p class="lead">Text, OCR, signatures and passwords, all processed in your browser.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="https://smyrna-pergamum.github.io/PDF-Werkstatt/">Open the editor</a>
+        <a class="btn" href="https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest">Download offline version</a>
+      </div>
+    </div>
+    <div class="bench" data-loop id="glyphs">
+      <div class="mosaic" aria-hidden="true">
+        <span class="f-tinos">P</span><span class="f-dancing lit h-saffron">D</span><span class="f-cousine">F</span><span class="f-dejavuserif">&amp;</span>
+        <span class="f-inter">W</span><span class="f-dejavumono">e</span><span class="f-arimo lit h-cobalt">r</span><span class="f-noto">k</span>
+        <span class="f-dejavu">s</span><span class="f-tinos lit h-coral">t</span><span class="f-dancing">a</span><span class="f-cousine">§</span>
+        <span class="f-arabic">ب</span><span class="f-dejavuserif">ğ</span><span class="f-inter">ß</span><span class="f-dejavumono lit h-emerald">¶</span>
+      </div>
+      <div class="ba" id="ba" data-kind="product">
+        <img src="assets/page-scan.webp" width="1180" height="1670" alt="A crooked, grey scan of a one-page project proposal" fetchpriority="high">
+        <div class="ba__after">
+          <img src="assets/page-after.webp" width="1180" height="1670" alt="The same proposal after OCR, sharp, with the word Migration found by search">
+          <span class="hit" aria-hidden="true"></span>
+        </div>
+        <span class="ba__tag ba__tag--l">Scan</span>
+        <span class="ba__tag ba__tag--r">After OCR</span>
+        <div class="ba__line"><span class="ba__knob"><svg class="i" aria-hidden="true"><use href="#i-arrows"/></svg></span></div>
+        <input type="range" min="0" max="100" value="46" aria-label="Compare the scan with the page after OCR">
+      </div>
+    </div>
+  </div>
+  <div class="container strip">
+    <button class="round" type="button" data-loop-toggle aria-label="Pause the glyphs" data-for="glyphs"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button>
+    <ul aria-label="Jump to a tool">
+      <li><a href="#try" data-tab="t-edit"><span class="hue h-cobalt"><svg class="i" aria-hidden="true"><use href="#i-text"/></svg></span>Edit text</a></li>
+      <li><a href="#try" data-tab="t-ocr"><span class="hue h-turq"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg></span>OCR in 14 languages</a></li>
+      <li><a href="#everything"><span class="hue h-plum"><svg class="i" aria-hidden="true"><use href="#i-sign"/></svg></span>Fill and sign</a></li>
+      <li><a href="#try" data-tab="t-redact"><span class="hue h-coral"><svg class="i" aria-hidden="true"><use href="#i-redact"/></svg></span>Redact</a></li>
+      <li><a href="#try" data-tab="t-protect"><span class="hue h-saffron"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span>Protect</a></li>
+      <li><a href="#try" data-tab="t-export"><span class="hue h-emerald"><svg class="i" aria-hidden="true"><use href="#i-export"/></svg></span>Export</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- white sheet: everything a PDF asks for -->
+<section class="sheet everything" id="everything">
+  <div class="container center-head">
+    <h2>Sixteen tools in one tab.</h2>
+    <p class="lead">From fixing one word to locking the whole file.</p>
+  </div>
+  <ul class="rail" tabindex="0" aria-label="Tools, scroll sideways">
+    <li><div class="rail-head"><span class="hue h-cobalt"><svg class="i" aria-hidden="true"><use href="#i-text"/></svg></span>Edit PDF</div>
+      <figure class="media" data-kind="product"><img data-shot src="assets/pane-edit.webp" width="608" height="1606" alt="The Edit PDF panel with Edit existing text, font size and colour" loading="lazy"><figcaption>Replace words in place</figcaption></figure></li>
+    <li><div class="rail-head"><span class="hue h-saffron"><svg class="i" aria-hidden="true"><use href="#i-type"/></svg></span>Add text</div>
+      <figure class="media" data-loop><video class="keep-loop" src="assets/typewriter-garden.mp4" poster="assets/typewriter-garden.jpg" muted loop playsinline preload="none" aria-label="Hands typing on a green portable typewriter outdoors"></video><figcaption>Type anywhere on the page</figcaption><button class="round" type="button" data-loop-toggle aria-label="Pause the video"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button></figure></li>
+    <li><div class="rail-head"><span class="hue h-turq"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg></span>OCR</div>
+      <figure class="media"><img src="assets/laptop.jpg" width="1067" height="1600" alt="A research paper open on a laptop held on someone's lap" loading="lazy"><figcaption>Search a scanned paper</figcaption></figure></li>
+    <li><div class="rail-head"><span class="hue h-plum"><svg class="i" aria-hidden="true"><use href="#i-sign"/></svg></span>Fill and sign</div>
+      <figure class="media"><img src="assets/desk.jpg" width="1600" height="1068" alt="Printed forms, a magnifying glass, a phone and a coffee on a desk" loading="lazy" style="object-position:30% 50%"><figcaption>Draw or type a signature</figcaption></figure></li>
+    <li><div class="rail-head"><span class="hue h-coral"><svg class="i" aria-hidden="true"><use href="#i-redact"/></svg></span>Redact</div>
+      <figure class="media" data-kind="product"><img data-shot src="assets/pane-redact.webp" width="608" height="1606" alt="The Redact panel with the fill opacity slider" loading="lazy"><figcaption>Removed, not covered</figcaption></figure></li>
+    <li><div class="rail-head"><span class="hue h-emerald"><svg class="i" aria-hidden="true"><use href="#i-merge"/></svg></span>Merge files</div>
+      <figure class="media"><img src="assets/study.jpg" width="1500" height="999" alt="An exam workbook, pens and Turkish coffee on a patterned carpet" loading="lazy" style="object-position:45% 50%"><figcaption>Many files, one PDF</figcaption></figure></li>
+    <li><div class="rail-head"><span class="hue h-cobalt"><svg class="i" aria-hidden="true"><use href="#i-export"/></svg></span>Export PDF</div>
+      <figure class="media"><img src="assets/documents.jpg" width="1600" height="1068" alt="Letter tiles spelling documents on dark wood" loading="lazy" style="object-position:50% 50%"><figcaption>DOCX, TXT, XLSX, JPEG or PNG</figcaption></figure></li>
+  </ul>
+</section>
+
+<!-- try it here -->
+<section class="sheet sheet--flat try" id="try">
+  <div class="container">
+    <div class="try-head">
+      <h2>Try the tools on this page.</h2>
+      <div class="chips" role="tablist" aria-label="Tools to try">
+        <button type="button" role="tab" id="t-edit" aria-controls="p-edit" aria-selected="true"><span class="hue h-cobalt"><svg class="i" aria-hidden="true"><use href="#i-text"/></svg></span>Edit text</button>
+        <button type="button" role="tab" id="t-ocr" aria-controls="p-ocr" aria-selected="false" tabindex="-1"><span class="hue h-turq"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg></span>OCR</button>
+        <button type="button" role="tab" id="t-redact" aria-controls="p-redact" aria-selected="false" tabindex="-1"><span class="hue h-coral"><svg class="i" aria-hidden="true"><use href="#i-redact"/></svg></span>Redact</button>
+        <button type="button" role="tab" id="t-protect" aria-controls="p-protect" aria-selected="false" tabindex="-1"><span class="hue h-saffron"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span>Protect</button>
+        <button type="button" role="tab" id="t-export" aria-controls="p-export" aria-selected="false" tabindex="-1"><span class="hue h-emerald"><svg class="i" aria-hidden="true"><use href="#i-export"/></svg></span>Export</button>
+      </div>
+    </div>
+
+    <div class="stagecard" data-switch>
+      <div class="panel" role="tabpanel" id="p-edit" aria-labelledby="t-edit">
+        <div class="work">
+          <h3>Click the line and type over it.</h3>
+          <div class="tools-row">
+            <div class="field"><label for="ef">Font family</label>
+              <select id="ef">
+                <option value="var(--font-spec-inter)">Inter</option><option value="var(--font-spec-arimo)">Arimo (Arial)</option><option value="var(--font-spec-tinos)">Tinos (Times)</option><option value="var(--font-spec-cousine)">Cousine (Courier)</option><option value="var(--font-spec-noto)">Noto Sans</option><option value="var(--font-spec-dejavuserif)">DejaVu Serif</option><option value="var(--font-spec-dancing)">Dancing Script</option>
+              </select></div>
+            <div class="field"><label for="es">Font size</label>
+              <select id="es"><option>11 pt</option><option selected>14 pt</option><option>18 pt</option><option>24 pt</option></select></div>
+            <button type="button" class="toggle toggle--b" aria-pressed="false" data-style="b" aria-label="Bold">B</button>
+            <button type="button" class="toggle toggle--i" aria-pressed="false" data-style="i" aria-label="Italic">I</button>
+            <button type="button" class="toggle toggle--u" aria-pressed="false" data-style="u" aria-label="Underline">U</button>
+          </div>
+          <div class="paper">
+            <div class="doc-row"><span>Discovery</span><span id="editLine" contenteditable="true" spellcheck="false">Stakeholder interviews and audit</span></div>
+            <div class="doc-row"><span>Design</span><span class="muted">Visual identity and page templates</span></div>
+            <div class="doc-row"><span>Migration</span><span class="muted">Content transfer and QA</span></div>
+          </div>
+        </div>
+        <figure class="pane-shot" data-slot="pane-edit" data-kind="product"><img src="assets/pane-edit.webp" width="608" height="1606" alt="The Edit PDF panel of PDF Werkstatt" loading="lazy"></figure>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-ocr" aria-labelledby="t-ocr">
+        <div class="work">
+          <h3>Pick the languages on the page.</h3>
+          <div class="langs">
+            <button type="button" class="lang" aria-pressed="true">English</button><button type="button" class="lang" aria-pressed="false">Turkish</button><button type="button" class="lang" aria-pressed="false">German</button><button type="button" class="lang" aria-pressed="false">French</button><button type="button" class="lang" aria-pressed="false">Spanish</button><button type="button" class="lang" aria-pressed="false">Italian</button><button type="button" class="lang" aria-pressed="false">Portuguese</button><button type="button" class="lang" aria-pressed="false">Dutch</button><button type="button" class="lang" aria-pressed="false">Polish</button><button type="button" class="lang" aria-pressed="false">Russian</button><button type="button" class="lang" aria-pressed="false">Ukrainian</button><button type="button" class="lang" aria-pressed="false">Greek</button><button type="button" class="lang" aria-pressed="false">Arabic</button><button type="button" class="lang" aria-pressed="false">Persian</button>
+          </div>
+          <p class="status" id="langStatus" aria-live="polite">English selected.</p>
+        </div>
+        <figure class="pane-shot" data-slot="pane-ocr" data-kind="product"><img src="assets/pane-ocr.webp" width="608" height="1606" alt="The OCR panel of PDF Werkstatt" loading="lazy"></figure>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-redact" aria-labelledby="t-redact">
+        <div class="work">
+          <h3>Mark what nobody should read.</h3>
+          <div class="paper">
+            <p class="redactable" id="redactable">Invoice for <button type="button" class="rd" aria-pressed="false">Example Studio</button>, sent to <button type="button" class="rd" aria-pressed="false">billing@example.com</button>. Pay to account <button type="button" class="rd" aria-pressed="false">0000 1111 2222</button> by <button type="button" class="rd" aria-pressed="false">the end of the month</button>.</p>
+          </div>
+          <label class="range">Redaction fill opacity <input type="range" id="fill" min="20" max="100" value="100"> <span id="fillOut">100%</span></label>
+        </div>
+        <figure class="pane-shot" data-slot="pane-redact" data-kind="product"><img src="assets/pane-redact.webp" width="608" height="1606" alt="The Redact panel of PDF Werkstatt" loading="lazy"></figure>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-protect" aria-labelledby="t-protect">
+        <div class="work">
+          <h3>Lock it with a password.</h3>
+          <div class="paper">
+            <table class="record">
+              <thead><tr><th scope="col">Setting</th><th scope="col">What happens</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Encryption</th><td>AES-256, standard security handler, revision 6</td></tr>
+                <tr><th scope="row">Opening password</th><td>Typed twice, never stored</td></tr>
+                <tr><th scope="row">Owner password</th><td>Generated at random when left blank</td></tr>
+                <tr><th scope="row">Permissions</th><td>Printing, copying and editing, each on or off</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <figure class="pane-shot" data-slot="pane-protect" data-kind="product"><img src="assets/pane-protect.webp" width="608" height="1606" alt="The Protect PDF panel of PDF Werkstatt" loading="lazy"></figure>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-export" aria-labelledby="t-export">
+        <div class="work">
+          <h3>Take it out in six formats.</h3>
+          <div class="paper">
+            <table class="record">
+              <thead><tr><th scope="col">Format</th><th scope="col">You get</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">PDF</th><td>Your edits and the searchable OCR layer</td></tr>
+                <tr><th scope="row">Word</th><td>Editable text, or page images that keep the look</td></tr>
+                <tr><th scope="row">Text</th><td>UTF-8 text in reading order</td></tr>
+                <tr><th scope="row">Images</th><td>JPEG or PNG pages at 72, 150 or 300&nbsp;dpi</td></tr>
+                <tr><th scope="row">Excel</th><td>One worksheet per page</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <figure class="pane-shot" data-slot="pane-export" data-kind="product"><img src="assets/pane-export.webp" width="608" height="1606" alt="The Export PDF panel of PDF Werkstatt" loading="lazy"></figure>
+      </div>
+    </div>
+
+    <!-- the ten fonts -->
+    <div class="typecard on-ink" id="type">
+      <div class="typecard-top">
+        <h2>Ten fonts ship inside the app.</h2>
+        <div class="field"><label for="specText">Type your own line</label><input id="specText" type="text" value="Page three, fixed." maxlength="48" autocomplete="off" spellcheck="false"></div>
+      </div>
+      <p class="typeline f-tinos" id="typeline" aria-live="polite">Page three, fixed.</p>
+      <div class="typefoot">
+        <p class="typename" id="typename">Tinos<small>Metric match for Times</small></p>
+        <div class="typenav">
+          <button class="round" type="button" id="prevFont" aria-label="Previous font"><svg class="i" aria-hidden="true"><use href="#i-left"/></svg></button>
+          <div class="dots" id="dots" role="group" aria-label="Fonts"></div>
+          <button class="round" type="button" id="nextFont" aria-label="Next font"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- dark bench: where it runs -->
+<section class="dark on-ink bench-sec" id="bench">
+  <div class="container">
+    <div class="bench-head">
+      <h2>Built for your desk, not a server.</h2>
+      <p class="lead">Online in a tab, or one file that works with the cable pulled.</p>
+    </div>
+    <figure class="reel" data-loop>
+      <video class="keep-loop" src="assets/typewriter-keys.mp4" poster="assets/typewriter-keys.jpg" muted loop playsinline preload="metadata" aria-label="Fingers pressing the round keys of an old black typewriter"></video>
+      <figcaption><button class="round" type="button" data-loop-toggle aria-label="Pause the video"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button>Typed once, edited for years.</figcaption>
+    </figure>
+    <div class="cards">
+      <article class="card"><span class="hue h-cobalt"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span><h3>In the browser</h3><p>Chrome, Edge or Firefox. Nothing to install.</p></article>
+      <article class="card"><span class="hue h-emerald"><svg class="i" aria-hidden="true"><use href="#i-offline"/></svg></span><h3>Offline file</h3><p>One HTML file, about 64&nbsp;MiB, OCR included.</p></article>
+      <figure class="grid-video" data-loop>
+        <video class="keep-loop" src="assets/digital.mp4" poster="assets/digital.jpg" muted loop playsinline preload="none" aria-label="Grey digital lines drifting across a screen"></video>
+        <figcaption><span>Processed on your device</span><button class="round" type="button" data-loop-toggle aria-label="Pause the video"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button></figcaption>
+      </figure>
+      <article class="card"><span class="hue h-turq"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg></span><h3>14 OCR languages</h3><p>Turkish to Persian, bundled.</p></article>
+      <article class="card"><span class="hue h-saffron"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span><h3>Three interfaces</h3><p>English, German and Turkish, in light or dark.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- close -->
+<section class="sheet close" id="get">
+  <div class="container center-head">
+    <h2>Drop a PDF on the page.</h2>
+    <p class="lead">Free and open source. No account, no upload.</p>
+    <div class="actions">
+      <a class="btn btn--primary" href="https://smyrna-pergamum.github.io/PDF-Werkstatt/">Open the editor</a>
+      <a class="btn" href="https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest">Download offline version</a>
+    </div>
+  </div>
+  <div class="container">
+    <figure class="close-shot" data-slot="home" data-kind="product"><img src="assets/home.webp" width="2880" height="1800" alt="The PDF Werkstatt start screen with Open PDF and the most used tools" loading="lazy"></figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <a class="wordmark" href="#top" aria-label="PDF Werkstatt, back to the top"><img src="assets/icon.png" width="28" height="28" alt=""><span>PDF Werkstatt</span></a>
+    <p>Free software under the GNU AGPL-3.0, by smyrna-pergamum. Videos and photographs from Pexels. Set in Onest and the app’s ten fonts.</p>
+    <ul>
+      <li><a href="https://github.com/smyrna-pergamum/PDF-Werkstatt">Source on GitHub</a></li>
+      <li><a href="https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest">Releases</a></li>
+      <li><a href="https://github.com/smyrna-pergamum/PDF-Werkstatt/blob/main/LICENSE">Licence</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero: drag the divider between scan and searchable page */
+const ba = $('#ba'), cut = $('input', ba);
+const setCut = () => ba.style.setProperty('--cut', cut.value + '%');
+cut.addEventListener('input', setCut); setCut();
+
+/* switcher */
+const tabs = $$('[role=tab]');
+const show = (t, focus) => {
+  tabs.forEach((x) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+  if (focus) t.focus();
+};
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => show(t));
+  t.addEventListener('keydown', (e) => {
+    const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (d) { e.preventDefault(); show(tabs[(i + d + tabs.length) % tabs.length], true); }
+  });
+});
+show(tabs[0]);
+$$('[data-tab]').forEach((a) => a.addEventListener('click', () => show(document.getElementById(a.dataset.tab))));
+
+/* edit text demo */
+const line = $('#editLine');
+const applyFont = () => { line.style.fontFamily = $('#ef').value; line.style.fontSize = parseInt($('#es').value, 10) * 1.333 + 'px'; };
+$('#ef').addEventListener('change', applyFont); $('#es').addEventListener('change', applyFont); applyFont();
+$$('[data-style]').forEach((b) => b.addEventListener('click', () => {
+  const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on);
+  const k = b.dataset.style;
+  if (k === 'b') line.style.fontWeight = on ? '700' : '';
+  if (k === 'i') line.style.fontStyle = on ? 'italic' : '';
+  if (k === 'u') line.style.textDecoration = on ? 'underline' : '';
+}));
+
+/* OCR languages */
+const langs = $$('.lang');
+langs.forEach((b) => b.addEventListener('click', () => {
+  b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+  const on = langs.filter((x) => x.getAttribute('aria-pressed') === 'true').map((x) => x.textContent);
+  $('#langStatus').textContent = on.length ? on.join(' + ') + ' selected.' : 'Pick at least one language.';
+}));
+
+/* redaction */
+$$('.rd').forEach((b) => b.addEventListener('click', () => b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true')));
+$('#fill').addEventListener('input', (e) => { $('#redactable').style.setProperty('--fill', e.target.value / 100); $('#fillOut').textContent = e.target.value + '%'; });
+
+/* the ten fonts */
+const FONTS = [
+  ['f-tinos', 'Tinos', 'Metric match for Times'], ['f-inter', 'Inter', 'Screen sans'], ['f-arimo', 'Arimo', 'Metric match for Arial'],
+  ['f-cousine', 'Cousine', 'Metric match for Courier'], ['f-noto', 'Noto Sans', 'Wide language cover'], ['f-arabic', 'Noto Sans Arabic', 'Arabic and Persian'],
+  ['f-dejavu', 'DejaVu Sans', 'Sans with many scripts'], ['f-dejavuserif', 'DejaVu Serif', 'Serif with many scripts'], ['f-dejavumono', 'DejaVu Mono', 'Fixed width'],
+  ['f-dancing', 'Dancing Script', 'Handwritten']];
+let fi = 0;
+const typeline = $('#typeline'), dots = $('#dots');
+FONTS.forEach((f, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', f[1]); b.addEventListener('click', () => setFont(i)); dots.append(b); });
+function setFont(i) {
+  fi = (i + FONTS.length) % FONTS.length; const [cls, name, note] = FONTS[fi];
+  typeline.className = 'typeline ' + cls;
+  $('#typename').innerHTML = name + '<small>' + note + '</small>';
+  $$('button', dots).forEach((b, j) => b.setAttribute('aria-current', j === fi));
+}
+$('#prevFont').addEventListener('click', () => setFont(fi - 1));
+$('#nextFont').addEventListener('click', () => setFont(fi + 1));
+$('#specText').addEventListener('input', (e) => { typeline.textContent = e.target.value || ' '; });
+setFont(0);
+
+/* glyph mosaic: one tile changes font every few seconds while in view */
+const tiles = $$('.mosaic span'), CLS = FONTS.map((f) => f[0]).filter((c) => c !== 'f-arabic');
+const CHARS = 'PDFWerkstatß§¶&ğüçşöä@'.split('');
+let glyphTimer = null;
+function swapOne() {
+  const t = tiles[Math.floor(Math.random() * tiles.length)];
+  t.classList.add('swap');
+  setTimeout(() => {
+    CLS.forEach((c) => t.classList.remove(c)); t.classList.remove('f-arabic');
+    t.classList.add(CLS[Math.floor(Math.random() * CLS.length)]);
+    t.textContent = CHARS[Math.floor(Math.random() * CHARS.length)];
+    t.classList.remove('swap');
+  }, 420);
+}
+
+/* loops: run in view, pause on hover, focus or the button */
+$$('[data-loop]').forEach((el) => {
+  const btn = el.querySelector('[data-loop-toggle]') || $(`[data-loop-toggle][data-for="${el.id}"]`);
+  const s = { seen: false, hover: false, focus: false, held: reduce };
+  const sync = () => {
+    const run = s.seen && !s.hover && !s.focus && !s.held;
+    el.classList.toggle('is-running', run);
+    $$('video', el).forEach((v) => (run ? v.play().catch(() => {}) : v.pause()));
+    if (el.id === 'glyphs') { clearInterval(glyphTimer); glyphTimer = run ? setInterval(swapOne, 2400) : null; }
+    if (btn) {
+      btn.setAttribute('aria-label', (s.held ? 'Play ' : 'Pause ') + (el.id === 'glyphs' ? 'the glyphs' : 'the video'));
+      const use = btn.querySelector('use'); if (use) use.setAttribute('href', s.held ? '#i-play' : '#i-pause');
+      if (!use) btn.textContent = s.held ? 'Play' : 'Pause';
+    }
+  };
+  if (btn) btn.addEventListener('click', () => { s.held = !s.held; sync(); });
+  if (el.id !== 'glyphs') [['pointerenter', 'hover', true], ['pointerleave', 'hover', false], ['focusin', 'focus', true], ['focusout', 'focus', false]].forEach(([t, k, v]) => el.addEventListener(t, () => { s[k] = v; sync(); }));
+  new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);
+});
+</script>
+</body>
+</html>
