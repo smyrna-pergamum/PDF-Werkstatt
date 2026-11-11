@@ -15,6 +15,7 @@
 <p align="center">
   <a href="https://smyrna-pergamum.github.io/PDF-Werkstatt/"><b>▶ Try it online</b></a>
   &nbsp;·&nbsp; <a href="https://github.com/smyrna-pergamum/PDF-Werkstatt/releases/latest"><b>⬇ Download offline version</b></a>
+  &nbsp;·&nbsp; <a href="https://smyrna-pergamum.github.io/PDF-Werkstatt/site/"><b>Website</b></a>
   &nbsp;·&nbsp; <a href="#tools-and-features">Features</a>
   &nbsp;·&nbsp; <a href="#quick-start">Quick start</a>
 </p>
